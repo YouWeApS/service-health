@@ -1,5 +1,8 @@
 #!/bin/bash
 
+script_dir=$( cd $(dirname $0); pwd -P )
+install_path=/usr/bin
+
 echo 'Installing dependencies ...'
 
 echo 'Fetching slacktee GitHub repo ...'
@@ -12,12 +15,9 @@ echo 'Removing fetched /slacktee folder ...'
 rm -rf slacktee
 
 echo 'Moving custom slacktee.conf to /etc ...'
+conf_file="slacktee.conf"
 sed  -i "1i webhook_url=$1" slacktee.conf # pasting the webhook url to slacktee config
-cp -i "$script_dir/slacktee.conf" "/etc"
-
-
-install_path=/usr/bin
-script_dir=$( cd $(dirname $0); pwd -P )
+cp -i "$script_dir/$conf_file" "/etc"
 
 echo 'Installing service-health.sh ...'
 
