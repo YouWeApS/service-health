@@ -47,7 +47,7 @@ echo ':tada: service-health-scheduler.sh installed'
 
 echo 'Removing service-health folder ...'
 cd ../
-ls
+echo script_dir
 rm -rf service-health
 
 echo 'Done.'
