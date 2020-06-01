@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ $# -eq 0 ]; then
-  echo 'You must supply webhook token as an argument'
+if [ $# -lt 2 ]; then
+  echo 'You must supply slack channel name and webhook token as an arguments'
 	exit 1
 fi
 
@@ -23,7 +23,12 @@ script_dir=$( cd $(dirname $0); pwd -P )
 conf_file="slacktee.conf"
 conf_location="/etc"
 
-sed  -i "1i webhook_url=$1" "$script_dir/$conf_file" # pasting the webhook url to slacktee config
+sed  -i "1i channel=$1" "$script_dir/$conf_file" # pasting the slack channel name to slacktee config
+if [[ $? -ne 0 ]]; then
+	echo 'Failed to paste channel name to $conf_file'
+	exit 1
+fi
+sed  -i "1i webhook_url=$2" "$script_dir/$conf_file" # pasting the webhook url to slacktee config
 if [[ $? -ne 0 ]]; then
 	echo 'Failed to paste webhook url to $conf_file'
 	exit 1
