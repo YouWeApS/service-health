@@ -16,7 +16,7 @@ rm -rf slacktee
 
 echo 'Moving custom slacktee.conf to /etc ...'
 conf_file="slacktee.conf"
-sed  -i "1i webhook_url=$1" slacktee.conf # pasting the webhook url to slacktee config
+sed  -i "1i webhook_url=$1" "$script_dir/$conf_file" # pasting the webhook url to slacktee config
 cp -i "$script_dir/$conf_file" "/etc"
 
 echo 'Installing service-health.sh ...'
