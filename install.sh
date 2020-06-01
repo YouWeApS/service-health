@@ -5,9 +5,9 @@ if [ $# -eq 0 ]; then
 	exit 1
 fi
 
-echo '[*] Installing dependencies ...'
+echo '[*] Installing dependencies'
 
-echo '[*] Fetching slacktee GitHub repo ...'
+echo '[*] Fetching slacktee GitHub repo'
 git clone https://github.com/YouWeApS/slacktee.git
 
 echo '[*] Installing slacktee.sh ...'
