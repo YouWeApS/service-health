@@ -46,8 +46,6 @@ chmod +x "$install_path/$scheduler_script"
 echo ':tada: service-health-scheduler.sh installed'
 
 echo 'Removing service-health folder ...'
-cd ../
-echo $script_dir
 rm -rf service-health
 
 echo 'Done.'
