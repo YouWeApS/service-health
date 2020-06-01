@@ -8,7 +8,7 @@ fi
 echo '[*] Installing dependencies ...'
 
 echo '[*] Fetching slacktee GitHub repo ...'
-git clone https://github.com/course-hero/slacktee.git
+git clone https://github.com/YouWeApS/slacktee.git
 
 echo '[*] Installing slacktee.sh ...'
 bash ./slacktee/install.sh /usr/bin
